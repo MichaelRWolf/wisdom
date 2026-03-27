@@ -9,8 +9,6 @@ my $today = strftime("%Y-%m-%d", localtime);
 
 $^I = "";
 
-my $done = 0;
-
 # Standard separator created in Emacs (64 '='s)
 #    C-u C-u C-u '='
 #
@@ -23,21 +21,31 @@ my $hline_length_standard_min = $hline_length_short+1;
 
 my $hline_standard = '=' x $hline_length_standard;
 
+my $seen_hline_with_timestamp = 0;
+
+ LINE:
 while (my $line = <ARGV>) {
+    if ($seen_hline_with_timestamp) { print $line; next LINE }
+
+  LINE_SWITCH:
     for ($line) {
-        $done and do { print; last };
 
+	# First hline WITH timestamp - output it, then allow remaining lines to pass unchanged
         /^(={$hline_length_standard_min,})\s+(\d{4}-\d{2}-\d{2})(.*)/ and do { 
-	    $done = 1; 
+	    $seen_hline_with_timestamp = 1;
+
 	    print "$hline_standard $2$3\n"; 
-	    last
+	    last LINE_SWITCH;
 	};
-
+	
+	# hline WITHOUT tiestamp - output it WITH timestamp
         /^(={$hline_length_standard_min,})\s*$/ and do {
-	    print "$hline_standard $today\n";  
-	    last 
-	};
 
+	    print "$hline_standard $today\n";  
+	    last LINE_SWITCH;
+	};
+	
+	# Default
         print;
     }
 }
