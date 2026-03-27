@@ -6430,3 +6430,11 @@ but to create a new semantic level in which one can be absolutely precise.
   -- Edsger W. Dijkstra
 
 ================================================================
+
+================================================================
+
+If you want to go fast, go alone.
+If you want to go far, go together.
+  -- African proverb
+
+================================================================
