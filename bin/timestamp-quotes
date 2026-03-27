@@ -5,13 +5,9 @@ use POSIX qw(strftime);
 
 die "Usage: $0 <file>\n" unless @ARGV == 1;
 
-my $file = $ARGV[0];
-my $bak  = "$file.bak";
-die "Backup file '$bak' already exists — aborting\n" if -e $bak;
-
 my $today = strftime("%Y-%m-%d", localtime);
 
-$^I = ".bak";
+$^I = "";
 
 my $done = 0;
 

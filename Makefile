@@ -5,13 +5,32 @@ REPO      := $(CURDIR)
 CRON_SCHED = 0 23 * * *
 CRON_CMD   = make -C $(REPO) commit_quotes
 
-.PHONY: commit_quotes timestamp_quotes install_crontab show_crontab
+.PHONY: commit_quotes timestamp_quotes install install_quotes install_crontab show_crontab
 
-commit_quotes:
+commit_quotes: timestamp_quotes
 	bin/commit-quotes
 
 timestamp_quotes:
 	bin/timestamp-quotes quotes.txt
+
+install: install_quotes
+
+install_quotes:
+	@TARGET="$(REPO)/quotes.txt"; \
+	LINK="$(HOME)/quotes.txt"; \
+	if [ -L "$$LINK" ]; then \
+	    CURRENT=$$(readlink "$$LINK"); \
+	    if [ "$$CURRENT" = "$$TARGET" ]; then \
+	        echo "install_quotes: verified $$LINK -> $$TARGET"; \
+	    else \
+	        echo "WARNING: $$LINK exists but points to $$CURRENT (expected $$TARGET)"; \
+	    fi; \
+	elif [ -e "$$LINK" ]; then \
+	    echo "WARNING: $$LINK exists and is not a symlink — leaving it alone"; \
+	else \
+	    ln -s "$$TARGET" "$$LINK"; \
+	    echo "install_quotes: created $$LINK -> $$TARGET"; \
+	fi
 
 # Install a nightly crontab entry (idempotent — safe to run multiple times).
 # MAILTO="" suppresses all cron mail.
