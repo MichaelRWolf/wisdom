@@ -147,3 +147,26 @@ GitHub: https://github.com/MichaelRWolf/wisdom
 - `~/org-roam-logseq-from-iCloud-Drive-Archive/pages/20230711112147-quotes.org`
 - `~/Library/CloudStorage/Dropbox/quotes.txt (Symlink Backup Copy)`
 - `~/miscellaneous_bits_and_gribbles/misc/quotes.txt`
+
+---
+
+## Separator Date Research (2026-03-27)
+
+Goal: determine dates for the `================================================================` separator lines
+in `quotes.txt`, most of which currently have no date.
+
+Approach: enumerate git commits to each source file, record the top quote at each
+commit, and use that as a reference for hand-editing the separators.
+
+Output artifact: `quotes_commit_info.md` in this repo.
+
+### Portability note
+
+This task was started on wolf-air. All data comes from:
+
+- GitHub API (`gh api /repos/MichaelRWolf/org-roam-logseq-nodes-MichaelRWolf/commits?path=...`)
+- Local wisdom repo (`git log/show`)
+- Local writing repo (`git show 329a8a77:quotes_2025-02-14.org`)
+
+No dependency on files that exist only on michael-pro. Requires `gh` CLI authenticated
+as MichaelRWolf (already confirmed on wolf-air).
