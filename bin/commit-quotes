@@ -33,13 +33,13 @@ main() {
     # If OTHER files are currently staged, stash them so they stay out of
     # this commit and are restored exactly as found afterwards.
     local stashed=0
-    if ! git diff --cached --quiet -- ':!quotes.txt' 2>/dev/null; then
+    if ! git diff --cached --quiet ':!quotes.txt' 2>/dev/null; then
         git stash push --staged -m "commit-quotes: preserving staged changes"
         stashed=1
         log "Stashed other staged changes."
     fi
 
-    git add -- quotes.txt
+    git add quotes.txt
 
     # Guard: if a staged addition and an unstaged revert of the same lines
     # were both present, staging quotes.txt cancels them out — nothing to commit.
@@ -70,7 +70,7 @@ main() {
 # generate_message — parse staged diff, return human-readable commit message
 # ---------------------------------------------------------------------------
 generate_message() {
-    git diff --cached -- quotes.txt | awk -f <(_awk_quote_parser)
+    git diff --cached quotes.txt | awk -f <(_awk_quote_parser)
 }
 
 # ===========================================================================
