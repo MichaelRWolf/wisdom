@@ -3,103 +3,32 @@
 #
 # - Only ever touches quotes.txt; all other staged/unstaged changes preserved
 # - Generates a descriptive commit message from the diff when possible
-# - Pushes only if github.com:443 is reachable
+# - Pushes only if github.com:443 is reachable within 3 seconds
 # - Always exits 0 so cron never sends mail
 #
-# Usage: bin/save-quote          (from repo root or any subdirectory)
+# Usage: bin/save-quote          (from anywhere inside the repo)
 #        make save_quote
 
-# ---------------------------------------------------------------------------
-# Locate repo root: walk up from this script until we find .git
-# Works regardless of how the script was invoked (relative, absolute, symlink)
-# ---------------------------------------------------------------------------
-_script="$0"
-[[ "$_script" != /* ]] && _script="$PWD/$_script"   # make absolute
-_dir="$(cd "$(dirname "$_script")" && pwd -P)"       # resolve symlinks
-REPO="$(cd "$_dir/.." && pwd -P)"
+REPO=$(git rev-parse --show-toplevel)
 LOG="$REPO/logs/save-quote.log"
 mkdir -p "$REPO/logs"
 
 log() { echo "$(date '+%Y-%m-%d %H:%M:%S')  $*" >> "$LOG"; }
 
 # ---------------------------------------------------------------------------
-# generate_message — parse staged diff to produce a human-readable message
-# ---------------------------------------------------------------------------
-generate_message() {
-    git -C "$REPO" diff --cached quotes.txt | awk '
-    BEGIN {
-        in_block  = 0
-        first_line = ""
-        author     = ""
-        block_count = 0
-        saved_first = ""
-        saved_author = ""
-    }
-    # A new separator in added lines starts a quote block
-    /^\+={8,}/ {
-        if (in_block && first_line != "") {
-            block_count++
-            if (block_count == 1) { saved_first = first_line; saved_author = author }
-        }
-        in_block   = 1
-        first_line = ""
-        author     = ""
-        next
-    }
-    /^-/         { next }          # skip removed lines entirely
-    !in_block    { next }          # skip context outside a block
-    /^\+/ {
-        line = substr($0, 2)                                    # strip leading +
-        gsub(/^[[:space:]]+|[[:space:]]+$/, "", line)           # trim whitespace
-        if (line == "") next
-        # Author attribution: "  -- Name" or "-- Name"
-        if (line ~ /^--[[:space:]]/ || line ~ /^[[:space:]]+--[[:space:]]/) {
-            sub(/^[[:space:]]*--[[:space:]]*/, "", line)
-            author = line
-            next
-        }
-        # First content line of this block
-        if (first_line == "") {
-            first_line = substr(line, 1, 60)
-            if (length(line) > 60) first_line = first_line "..."
-        }
-    }
-    END {
-        # Count the final open block
-        if (in_block && first_line != "") {
-            block_count++
-            if (block_count == 1) { saved_first = first_line; saved_author = author }
-        }
-        if (block_count == 0) {
-            print "Update quotes.txt"
-        } else if (block_count == 1) {
-            if (saved_author != "")
-                printf "Add quote by %s: \"%s\"\n", saved_author, saved_first
-            else
-                printf "Add quote: \"%s\"\n", saved_first
-        } else {
-            if (saved_author != "")
-                printf "Add %d quotes (first by %s: \"%s\")\n", block_count, saved_author, saved_first
-            else
-                printf "Add %d quotes\n", block_count
-        }
-    }
-    '
-}
-
-# ---------------------------------------------------------------------------
-# main — wrapped so set -euo pipefail stays scoped; errors caught by trap
+# main
 # ---------------------------------------------------------------------------
 main() {
     set -euo pipefail
     cd "$REPO"
 
-    # Is quotes.txt clean (no staged or unstaged changes)?
+    # Nothing to do if quotes.txt is clean (no staged or unstaged changes).
     if git diff --quiet quotes.txt && git diff --cached --quiet quotes.txt; then
         exit 0
     fi
 
-    # Are OTHER files currently staged? Stash them so they stay out of this commit.
+    # If OTHER files are currently staged, stash them so they stay out of
+    # this commit and are restored exactly as found afterwards.
     local stashed=0
     if ! git diff --cached --quiet -- ':!quotes.txt' 2>/dev/null; then
         git stash push --staged -m "save-quote: preserving staged changes"
@@ -107,32 +36,118 @@ main() {
         log "Stashed other staged changes."
     fi
 
-    # Stage only quotes.txt
     git add quotes.txt
 
-    # Nothing staged after all (quotes.txt had only unstaged content that
-    # matched HEAD — shouldn't happen, but be safe)
+    # Guard: if a staged addition and an unstaged revert of the same lines
+    # were both present, staging quotes.txt cancels them out — nothing to commit.
     if git diff --cached --quiet; then
         (( stashed )) && git stash pop
         exit 0
     fi
 
-    # Build commit message, commit
     local msg
     msg=$(generate_message)
     git commit -m "$msg"
     log "Committed: $msg"
 
-    # Restore any stashed staged changes
     (( stashed )) && git stash pop && log "Restored stashed changes."
 
-    # Push only if github.com is reachable
+    # nc -z  = probe only, send no data
+    # nc -w 3 = abandon after 3 seconds
+    # Tests port 443 (HTTPS) on github.com; /usr/bin/nc avoids $PATH surprises in cron.
     if /usr/bin/nc -z -w 3 github.com 443 2>/dev/null; then
         git push
         log "Pushed."
     else
         log "Offline — push skipped."
     fi
+}
+
+# ---------------------------------------------------------------------------
+# generate_message — parse staged diff, return human-readable commit message
+# ---------------------------------------------------------------------------
+generate_message() {
+    git diff --cached quotes.txt | awk -f <(_awk_quote_parser)
+}
+
+# ===========================================================================
+# _awk_quote_parser — emit the awk program that extracts author + first line
+# from a unified diff of quotes.txt.
+#
+# Prints one of:
+#   Add quote by Author: "First line..."
+#   Add N quotes (first by Author: "First line...")
+#   Add N quotes
+#   Update quotes.txt                        (edits, no new blocks found)
+# ===========================================================================
+_awk_quote_parser() {
+    cat <<'AWKEOF'
+BEGIN {
+    in_block    = 0
+    first_line  = ""
+    author      = ""
+    block_count = 0
+    saved_first = ""
+    saved_author = ""
+}
+
+# A separator line in the added (+) side opens a new quote block.
+# When we hit one, close out the previous block if it had content.
+/^\+={8,}/ {
+    if (in_block && first_line != "") {
+        block_count++
+        if (block_count == 1) { saved_first = first_line; saved_author = author }
+    }
+    in_block   = 1
+    first_line = ""
+    author     = ""
+    next
+}
+
+/^-/      { next }   # removed lines — ignore
+!in_block { next }   # context lines outside a block — ignore
+
+/^\+/ {
+    line = substr($0, 2)                                   # strip leading +
+    gsub(/^[[:space:]]+|[[:space:]]+$/, "", line)          # trim whitespace
+    if (line == "") next
+
+    # Attribution line: "  -- Name" or "-- Name"
+    if (line ~ /^--[[:space:]]/ || line ~ /^[[:space:]]+--[[:space:]]/) {
+        sub(/^[[:space:]]*--[[:space:]]*/, "", line)
+        author = line
+        next
+    }
+
+    # First content line of this block
+    if (first_line == "") {
+        first_line = substr(line, 1, 60)
+        if (length(line) > 60) first_line = first_line "..."
+    }
+}
+
+END {
+    # Close out the final open block
+    if (in_block && first_line != "") {
+        block_count++
+        if (block_count == 1) { saved_first = first_line; saved_author = author }
+    }
+
+    if (block_count == 0) {
+        print "Update quotes.txt"
+    } else if (block_count == 1) {
+        if (saved_author != "")
+            printf "Add quote by %s: \"%s\"\n", saved_author, saved_first
+        else
+            printf "Add quote: \"%s\"\n", saved_first
+    } else {
+        if (saved_author != "")
+            printf "Add %d quotes (first by %s: \"%s\")\n", block_count, saved_author, saved_first
+        else
+            printf "Add %d quotes\n", block_count
+    }
+}
+AWKEOF
 }
 
 # ---------------------------------------------------------------------------
