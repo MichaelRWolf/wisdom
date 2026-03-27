@@ -6422,3 +6422,11 @@ Quote Sources (reference links, collected ~2014)
   http://www.quoteland.com/topic.asp?CATEGORY_ID=29               [DEAD 2026-03-26]
   http://www.technofile.org/technofile/Quotes/tech_quotes1.html   [live 2026-03-26]
 ================================================================
+
+================================================================
+
+The purpose of abstracting is not to be vague,
+but to create a new semantic level in which one can be absolutely precise.
+  -- Edsger W. Dijkstra
+
+================================================================
