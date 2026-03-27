@@ -6,12 +6,15 @@
 # - Pushes only if github.com:443 is reachable within 3 seconds
 # - Always exits 0 so cron never sends mail
 #
-# Usage: bin/save-quote          (from anywhere inside the repo)
+# Usage: bin/save-quote          (from anywhere — path or symlink)
 #        make save_quote
 
-REPO=$(git rev-parse --show-toplevel)
-LOG="$REPO/logs/save-quote.log"
-mkdir -p "$REPO/logs"
+# BASH_SOURCE[0] is always this script's path, regardless of cwd or $0.
+# cd to its directory, then let git walk up to find the repo root.
+# This works whether called as bin/save-quote, ~/bin/save-quote, or from cron.
+REPO_ROOT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)
+LOG="$REPO_ROOT_DIR/logs/save-quote.log"
+mkdir -p "$REPO_ROOT_DIR/logs"
 
 log() { echo "$(date '+%Y-%m-%d %H:%M:%S')  $*" >> "$LOG"; }
 
@@ -20,7 +23,7 @@ log() { echo "$(date '+%Y-%m-%d %H:%M:%S')  $*" >> "$LOG"; }
 # ---------------------------------------------------------------------------
 main() {
     set -euo pipefail
-    cd "$REPO"
+    cd "$REPO_ROOT_DIR"
 
     # Nothing to do if quotes.txt is clean (no staged or unstaged changes).
     if git diff --quiet quotes.txt && git diff --cached --quiet quotes.txt; then
