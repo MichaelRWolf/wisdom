@@ -5,6 +5,7 @@ PROVENANCE
 2026-03-26  Created quotes.txt from repos/pk/org-roam-logseq-nodes-MichaelRWolf/pages/20230711112147-quotes.org (6366 lines, last modified 2025-10-30)
 
 2026-03-26  Removed org-mode boilerplate (:PROPERTIES:, #+title, * headings) -- 30 lines stripped
+2026-03-26  Merged 9 unique pre-org-mode quotes from miscellaneous_bits_and_gribbles/misc/quotes.txt (~2008)
 ================================================================
 
 ================================================================
@@ -6342,3 +6343,73 @@ http://www.quoteland.com/topic.asp?CATEGORY_ID=29
 http://www.technofile.org/technofile/Quotes/tech_quotes1.html
 abc al sdkasdfsllfkjsdf lsdj
 
+
+================================================================
+2026-03-26  Merged from pre-org-mode sources
+            (miscellaneous_bits_and_gribbles/misc/quotes.txt, created ~2008)
+================================================================
+
+In theory, there is no difference between theory and practice.
+But, in practice, there is.
+
+  -- Jan L.A. van de Snepscheut
+================================================================
+
+Who has time for a thousand words?
+  --Bootsy Haller, Photographer
+================================================================
+
+a mind is a terrible thing
+			 to waste
+	    it gives man his greatest pleasure
+
+ee cummings
+================================================================
+
+Syntax is complex, but the complexity is there for a reason.  For our
+thoughts are surely even more complex, and we are limited by a mouth
+that can pronounce a single word at a time.  Science has begun to
+crack the beautifully designed codce that our brains use to convey
+complex thoughts as words and their orderings.
+
+  -- "The Language Insight", p. 124, Steven Pinker
+================================================================
+
+Tell me, and I will forget;
+Show me, and I may remember;
+Involve me and I will understand...
+
+ -- Association for Experiential Education (www.aee.org) home page
+================================================================
+
+When someone says 
+  "I want a programming language in which I need only say 
+   what I wish done", 
+give him a lollipop.
+
+  -- Alan Perlis
+================================================================
+
+It is the profoundly erroneous truism, repeated by copybooks and by
+eminent people when they are making speeches, that we should cultivate
+the habit of thinking of what we are doing. The precise opposite is
+the case. Civilization advances by extending the number of important
+operations which we can perform without thiniking abou them.
+
+ -- Alfred North Whitehead
+================================================================
+
+The great thing about multitasking is that several things
+can go wrong at once.
+
+  -- unknown
+================================================================
+
+Talking abut Music is like dancing about Architecture.
+
+  -- Elvis Costello
+
+Writing about music is like dancing about architecure; it's a really
+stupid thing to want to do.
+http://www.quotationsbook.com/quote/bookmark_users/9279/
+================================================================
