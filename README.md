@@ -7,6 +7,8 @@ A personal collection of accumulated wisdom, built up over decades.
 - **[quotes.txt](quotes.txt)** — The main collection. Plain text, one quote per
   block, separated by `================================================================` lines.
   A `PROVENANCE` section at the top logs the history of the file.
+- **[CONSOLIDATION.md](CONSOLIDATION.md)** — Full account of how quotes.txt was assembled:
+  what files were found, what was decided, what was done, and what was retired.
 
 ## Format
 
