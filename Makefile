@@ -5,10 +5,13 @@ REPO      := $(CURDIR)
 CRON_SCHED = 0 23 * * *
 CRON_CMD   = make -C $(REPO) commit_quotes
 
-.PHONY: commit_quotes install_crontab show_crontab
+.PHONY: commit_quotes timestamp_quotes install_crontab show_crontab
 
 commit_quotes:
 	bin/commit-quotes
+
+timestamp_quotes:
+	bin/timestamp-quotes quotes.txt
 
 # Install a nightly crontab entry (idempotent — safe to run multiple times).
 # MAILTO="" suppresses all cron mail.

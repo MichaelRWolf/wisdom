@@ -1,0 +1,32 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use POSIX qw(strftime);
+
+die "Usage: $0 <file>\n" unless @ARGV == 1;
+
+my $file = $ARGV[0];
+my $bak  = "$file.bak";
+die "Backup file '$bak' already exists — aborting\n" if -e $bak;
+
+my $today = strftime("%Y-%m-%d", localtime);
+
+$^I = ".bak";
+
+my $done = 0;
+
+while (my $line = <ARGV>) {
+    if ($done) {
+        print $line;
+    } elsif ($line =~ /^={2,}\s+\d{4}-\d{2}-\d{2}/) {
+        # Horizontal line that already has a timestamp — stop adding dates
+        $done = 1;
+        print $line;
+    } elsif ($line =~ /^(={2,})\s*$/) {
+        # Horizontal line with no timestamp — append today's date
+        chomp $line;
+        print "$line $today\n";
+    } else {
+        print $line;
+    }
+}
