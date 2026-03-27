@@ -11,18 +11,33 @@ $^I = "";
 
 my $done = 0;
 
+# Standard separator created in Emacs (64 '='s)
+#    C-u C-u C-u '='
+#
+# "Short" separator (16 '='s)
+#    C-u C-u '='
+
+my $hline_length_standard = (4**3);
+my $hline_length_short = $hline_length_standard / 2 ;
+my $hline_length_standard_min = $hline_length_short+1;
+
+my $hline_standard = '=' x $hline_length_standard;
+
 while (my $line = <ARGV>) {
-    if ($done) {
-        print $line;
-    } elsif ($line =~ /^={2,}\s+\d{4}-\d{2}-\d{2}/) {
-        # Horizontal line that already has a timestamp — stop adding dates
-        $done = 1;
-        print $line;
-    } elsif ($line =~ /^(={2,})\s*$/) {
-        # Horizontal line with no timestamp — append today's date
-        chomp $line;
-        print "$line $today\n";
-    } else {
-        print $line;
+    for ($line) {
+        $done and do { print; last };
+
+        /^(={$hline_length_standard_min,})\s+(\d{4}-\d{2}-\d{2})(.*)/ and do { 
+	    $done = 1; 
+	    print "$hline_standard $2$3\n"; 
+	    last
+	};
+
+        /^(={$hline_length_standard_min,})\s*$/ and do {
+	    print "$hline_standard $today\n";  
+	    last 
+	};
+
+        print;
     }
 }
