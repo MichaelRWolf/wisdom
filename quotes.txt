@@ -1,13 +1,3 @@
-================================================================
-PROVENANCE
-================================================================
-
-2026-03-26  Created quotes.txt from repos/pk/org-roam-logseq-nodes-MichaelRWolf/pages/20230711112147-quotes.org (6366 lines, last modified 2025-10-30)
-
-2026-03-26  Removed org-mode boilerplate (:PROPERTIES:, #+title, * headings) -- 30 lines stripped
-2026-03-26  Merged 9 unique pre-org-mode quotes from miscellaneous_bits_and_gribbles/misc/quotes.txt (~2008)
-================================================================
-
 ================================================================ 2026-03-26
 
 Never doubt that a small group of thoughtful, committed citizens can change the world; 
@@ -6443,4 +6433,16 @@ If you want to go fast, go alone.
 If you want to go far, go together.
   -- African proverb
 
+================================================================
+
+
+
+================================================================
+PROVENANCE
+================================================================
+
+2026-03-26  Created quotes.txt from repos/pk/org-roam-logseq-nodes-MichaelRWolf/pages/20230711112147-quotes.org (6366 lines, last modified 2025-10-30)
+
+2026-03-26  Removed org-mode boilerplate (:PROPERTIES:, #+title, * headings) -- 30 lines stripped
+2026-03-26  Merged 9 unique pre-org-mode quotes from miscellaneous_bits_and_gribbles/misc/quotes.txt (~2008)
 ================================================================
