@@ -4,37 +4,8 @@ PROVENANCE
 
 2026-03-26  Created quotes.txt from repos/pk/org-roam-logseq-nodes-MichaelRWolf/pages/20230711112147-quotes.org (6366 lines, last modified 2025-10-30)
 
+2026-03-26  Removed org-mode boilerplate (:PROPERTIES:, #+title, * headings) -- 30 lines stripped
 ================================================================
-:PROPERTIES:
-:ID:       7DA6A9E5-5989-40A0-97DD-B302DBA7B9C8
-:END:
-#+title: Quotes 
-
-* Adding to quotes file...
-
-<2024-08-09 Fri>
-Rename file: to 'quotes.org' from 'quotes_roam.org'
-
-  lrwxr-xr-x  1 michael staff     62 2023-07-11  quotes.org -> /Users/michael/org-roam-logseq/pages/20230711112147-quotes.org
-  -r--r--r--  1 michael staff 192630 2023-07-11  quotes_HOME.org
-  -r--r--r--  1 michael staff 191148 2023-04-28  quotes_archived_2023-04-28.txt
-
-
-
-<2023-07-26 Wed> This file has multiple names
-- convenient emacs(1) access :: $HOME/quotes_roam.org
-- preferred org-roam-directory :: ~/org-roam-logseq-nodes-MichaelRWolf/pages
-
-- deprecated :: ~/org-roam-logseq/pages
-- deprecated :: ~/quotes_HOME.org  
-
-
-
-<2023-07-11 Tue> Edit THIS file!
-- located in ~/org-roam-logseq/pages
-- symlinked to $HOME
-
-* Quotes
 
 ================================================================
 
@@ -583,10 +554,10 @@ Quotes by Brian W. Kernighan. (2020). Retrieved September 30, 2020, from Defprog
 
 ================================================================
 
-* The jury is in!
-* The controversy is over.
-* GOTO is harmful.
-* And TDD works
+The jury is in!
+The controversy is over.
+GOTO is harmful.
+And TDD works
 
   -- Robert C. Marting (Uncle Bob), "The Clean Coder", p79.
 
@@ -653,7 +624,7 @@ A silk pajama
 There isn't any
 Three-l lllama.*
 
-* The author's attention has been called to a conflagration known as a 3-l lllama.  Pooh!
+The author's attention has been called to a conflagration known as a 3-l lllama.  Pooh!
 
   -- Ogden Nash
 
@@ -784,7 +755,7 @@ its a new approach to being humans in groups.
   -- Simon Mont, "Common Mistakes in Self-Management: Introduction"
   (https://medium.com/@simon_83447/common-mistakes-in-self-management-introduction-2311001e8568)
 
-* Mont, Simon. "Common Mistakes in Self-Management: Introduction". (24 Sep 2019). Medium. Retrieved 14 October 2019, from https://medium.com/@simon_83447/common-mistakes-in-self-management-introduction-2311001e8568
+Mont, Simon. "Common Mistakes in Self-Management: Introduction". (24 Sep 2019). Medium. Retrieved 14 October 2019, from https://medium.com/@simon_83447/common-mistakes-in-self-management-introduction-2311001e8568
 
 ================================================================
 
@@ -793,7 +764,7 @@ It doesn't attend to culture either [...]
   -- Al Shalloway
   (https://www.linkedin.com/pulse/new-scrum-game-al-shalloway)
 
-* Shalloway, Alan.  "The New Scrum Game". (7 Oct 2019). Linkedin.com. Retrieved 14 October 2019, from https://www.linkedin.com/pulse/new-scrum-game-al-shalloway/
+Shalloway, Alan.  "The New Scrum Game". (7 Oct 2019). Linkedin.com. Retrieved 14 October 2019, from https://www.linkedin.com/pulse/new-scrum-game-al-shalloway/
 
 ================================================================
 
@@ -993,7 +964,7 @@ business.
 ================================================================
 
 Be occupied as little as possible with things of the outer world but much with things of the inner world; then right action will overcome inaction.
-  -- Far+d ud-D+n øAmmr
+  -- Far+d ud-D+n ÔøΩAmmr
 
 ================================================================
 
@@ -2328,11 +2299,11 @@ HOW DO YOU WEAVE SO MUCH INFORMATION INTO YOUR STORIES AND YET KEEP
 THEM SO FAST-PACED?
 
 Writing an informative yet compact thriller is a lot like making maple
-sugar candy. You have to tap hundreds of treesÖboil vats and vats
-of raw sapÖevaporate the waterÖand keep boiling until you've
+sugar candy. You have to tap hundreds of treesÔøΩboil vats and vats
+of raw sapÔøΩevaporate the waterÔøΩand keep boiling until you've
 distilled a tiny nugget that encapsulates the essence. Of course, this
 requires liberal use of the DELETE key. In many ways, editing yourself
-is the most important part of being a novelistÖcarving away
+is the most important part of being a novelistÔøΩcarving away
 superfluous text until your story stands crystal clear before your
 reader. For every page in The Da Vinci Code, I wrote ten that ended up
 in the trash.
@@ -2464,8 +2435,8 @@ and of the community.
 ... But these are all constructs of the human mind to help us to work
 with and visualize the regularities of nature. When we grasp onto some
 regularity, we give it a name, and the temptation is always to think
-that we really understand it. But the truth is that weíre still not
-even close. Isní t it wonderful that nature is like that? It would be
+that we really understand it. But the truth is that weÔøΩre still not
+even close. IsnÔøΩ t it wonderful that nature is like that? It would be
 so dreadful if nature were so dull that we, with our pathetic little
 prejudices, had it all figured out already
 
@@ -2477,7 +2448,7 @@ prejudices, had it all figured out already
 It always worked out that when I understood something, it turned out
 to be simple. Take the connection between the quantum stuff and the
 electrodynamics in my book. It took me thirty years to figure out, and
-in the end, it was almost trivial. Itís so simple that any freshman
+in the end, it was almost trivial. ItÔøΩs so simple that any freshman
 could read it and understand it. But it was hard for me to get there
 because all of this historical junk was in the way.
 
@@ -3332,7 +3303,7 @@ of jobs that people do.
 
 ================
 
-Wasting time and inefficiencies are the way to discovery.  When CondÅÈ
+Wasting time and inefficiencies are the way to discovery.  When CondÔøΩÔøΩ
 Nast's editorial director Alexander Liberman was challenged on his
 inefficiencies in producing world-class magazines such [as] "The New
 Yorker", "Vanity Fair", and "Architectural Digest", he said it best:
@@ -3458,8 +3429,8 @@ http://www.quoteland.com/topic.asp?CATEGORY_ID=29
 http://www.technofile.org/technofile/Quotes/tech_quotes1.html
 abc al sdkasdfsllfkjsdf lsdj
 
-* Iterations
-* 
+Iterations
+
 
 ================================================================
  
@@ -3495,10 +3466,10 @@ Quotes by Brian W. Kernighan. (2020). Retrieved September 30, 2020, from Defprog
 
 ================================================================
 
-* The jury is in!
-* The controversy is over.
-* GOTO is harmful.
-* And TDD works
+The jury is in!
+The controversy is over.
+GOTO is harmful.
+And TDD works
 
   -- Robert C. Marting (Uncle Bob), "The Clean Coder", p79.
 
@@ -3565,7 +3536,7 @@ A silk pajama
 There isn't any
 Three-l lllama.*
 
-* The author's attention has been called to a conflagration known as a 3-l lllama.  Pooh!
+The author's attention has been called to a conflagration known as a 3-l lllama.  Pooh!
 
   -- Ogden Nash
 
@@ -3696,7 +3667,7 @@ its a new approach to being humans in groups.
   -- Simon Mont, "Common Mistakes in Self-Management: Introduction"
   (https://medium.com/@simon_83447/common-mistakes-in-self-management-introduction-2311001e8568)
 
-* Mont, Simon. "Common Mistakes in Self-Management: Introduction". (24 Sep 2019). Medium. Retrieved 14 October 2019, from https://medium.com/@simon_83447/common-mistakes-in-self-management-introduction-2311001e8568
+Mont, Simon. "Common Mistakes in Self-Management: Introduction". (24 Sep 2019). Medium. Retrieved 14 October 2019, from https://medium.com/@simon_83447/common-mistakes-in-self-management-introduction-2311001e8568
 
 ================================================================
 
@@ -3705,7 +3676,7 @@ It doesn't attend to culture either [...]
   -- Al Shalloway
   (https://www.linkedin.com/pulse/new-scrum-game-al-shalloway)
 
-* Shalloway, Alan.  "The New Scrum Game". (7 Oct 2019). Linkedin.com. Retrieved 14 October 2019, from https://www.linkedin.com/pulse/new-scrum-game-al-shalloway/
+Shalloway, Alan.  "The New Scrum Game". (7 Oct 2019). Linkedin.com. Retrieved 14 October 2019, from https://www.linkedin.com/pulse/new-scrum-game-al-shalloway/
 
 ================================================================
 
@@ -3905,7 +3876,7 @@ business.
 ================================================================
 
 Be occupied as little as possible with things of the outer world but much with things of the inner world; then right action will overcome inaction.
-  -- Far+d ud-D+n øAmmr
+  -- Far+d ud-D+n ÔøΩAmmr
 
 ================================================================
 
@@ -5253,11 +5224,11 @@ HOW DO YOU WEAVE SO MUCH INFORMATION INTO YOUR STORIES AND YET KEEP
 THEM SO FAST-PACED?
 
 Writing an informative yet compact thriller is a lot like making maple
-sugar candy. You have to tap hundreds of treesÖboil vats and vats
-of raw sapÖevaporate the waterÖand keep boiling until you've
+sugar candy. You have to tap hundreds of treesÔøΩboil vats and vats
+of raw sapÔøΩevaporate the waterÔøΩand keep boiling until you've
 distilled a tiny nugget that encapsulates the essence. Of course, this
 requires liberal use of the DELETE key. In many ways, editing yourself
-is the most important part of being a novelistÖcarving away
+is the most important part of being a novelistÔøΩcarving away
 superfluous text until your story stands crystal clear before your
 reader. For every page in The Da Vinci Code, I wrote ten that ended up
 in the trash.
@@ -5389,8 +5360,8 @@ and of the community.
 ... But these are all constructs of the human mind to help us to work
 with and visualize the regularities of nature. When we grasp onto some
 regularity, we give it a name, and the temptation is always to think
-that we really understand it. But the truth is that weíre still not
-even close. Isní t it wonderful that nature is like that? It would be
+that we really understand it. But the truth is that weÔøΩre still not
+even close. IsnÔøΩ t it wonderful that nature is like that? It would be
 so dreadful if nature were so dull that we, with our pathetic little
 prejudices, had it all figured out already
 
@@ -5402,7 +5373,7 @@ prejudices, had it all figured out already
 It always worked out that when I understood something, it turned out
 to be simple. Take the connection between the quantum stuff and the
 electrodynamics in my book. It took me thirty years to figure out, and
-in the end, it was almost trivial. Itís so simple that any freshman
+in the end, it was almost trivial. ItÔøΩs so simple that any freshman
 could read it and understand it. But it was hard for me to get there
 because all of this historical junk was in the way.
 
@@ -6245,7 +6216,7 @@ of jobs that people do.
 
 ================
 
-Wasting time and inefficiencies are the way to discovery.  When CondÅÈ
+Wasting time and inefficiencies are the way to discovery.  When CondÔøΩÔøΩ
 Nast's editorial director Alexander Liberman was challenged on his
 inefficiencies in producing world-class magazines such [as] "The New
 Yorker", "Vanity Fair", and "Architectural Digest", he said it best:
