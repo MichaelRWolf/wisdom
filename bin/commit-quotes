@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
-# save-quote — commit and push changes to quotes.txt in the wisdom repo
+# commit-quotes — commit and push changes to quotes.txt in the wisdom repo
 #
 # - Only ever touches quotes.txt; all other staged/unstaged changes preserved
 # - Generates a descriptive commit message from the diff when possible
 # - Pushes only if github.com:443 is reachable within 3 seconds
 # - Always exits 0 so cron never sends mail
 #
-# Usage: bin/save-quote          (from anywhere — path or symlink)
-#        make save_quote
+# Usage: bin/commit-quotes          (from anywhere — path or symlink)
+#        make commit_quotes
 
 # BASH_SOURCE[0] is always this script's path, regardless of cwd or $0.
 # cd to its directory, then let git walk up to find the repo root.
-# This works whether called as bin/save-quote, ~/bin/save-quote, or from cron.
+# This works whether called as bin/commit-quotes, ~/bin/commit-quotes, or from cron.
 REPO_ROOT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)
-LOG="$REPO_ROOT_DIR/logs/save-quote.log"
+LOG="$REPO_ROOT_DIR/logs/commit-quotes.log"
 mkdir -p "$REPO_ROOT_DIR/logs"
 
 log() { echo "$(date '+%Y-%m-%d %H:%M:%S')  $*" >> "$LOG"; }
@@ -34,7 +34,7 @@ main() {
     # this commit and are restored exactly as found afterwards.
     local stashed=0
     if ! git diff --cached --quiet -- ':!quotes.txt' 2>/dev/null; then
-        git stash push --staged -m "save-quote: preserving staged changes"
+        git stash push --staged -m "commit-quotes: preserving staged changes"
         stashed=1
         log "Stashed other staged changes."
     fi
