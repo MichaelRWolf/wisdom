@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # commit-quotes — commit and push changes to quotes.txt in the wisdom repo
-#
+
 # - Only ever touches quotes.txt; all other staged/unstaged changes preserved
 # - Generates a descriptive commit message from the diff when possible
 # - Pushes only if github.com:443 is reachable within 3 seconds
@@ -12,7 +12,7 @@
 # BASH_SOURCE[0] is always this script's path, regardless of cwd or $0.
 # cd to its directory, then let git walk up to find the repo root.
 # This works whether called as bin/commit-quotes, ~/bin/commit-quotes, or from cron.
-REPO_ROOT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)
+REPO_ROOT_DIR=$(CDPATH='' cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)
 LOG="$REPO_ROOT_DIR/logs/commit-quotes.log"
 mkdir -p "$REPO_ROOT_DIR/logs"
 
@@ -39,7 +39,7 @@ main() {
         log "Stashed other staged changes."
     fi
 
-    git add quotes.txt
+    git add -- quotes.txt
 
     # Guard: if a staged addition and an unstaged revert of the same lines
     # were both present, staging quotes.txt cancels them out — nothing to commit.
@@ -70,7 +70,7 @@ main() {
 # generate_message — parse staged diff, return human-readable commit message
 # ---------------------------------------------------------------------------
 generate_message() {
-    git diff --cached quotes.txt | awk -f <(_awk_quote_parser)
+    git diff --cached -- quotes.txt | awk -f <(_awk_quote_parser)
 }
 
 # ===========================================================================
