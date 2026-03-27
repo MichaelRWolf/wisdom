@@ -3,16 +3,16 @@
 # so this works whether invoked as 'make' or 'make -C /path/to/wisdom'.
 REPO      := $(CURDIR)
 CRON_SCHED = 0 23 * * *
-CRON_CMD   = make -C $(REPO) save_quote
+CRON_CMD   = make -C $(REPO) commit_quotes
 
-.PHONY: save_quote crontab show_crontab
+.PHONY: commit_quotes install_crontab show_crontab
 
-save_quote:
-	bin/save-quote
+commit_quotes:
+	bin/commit-quotes
 
 # Install a nightly crontab entry (idempotent — safe to run multiple times).
 # MAILTO="" suppresses all cron mail.
-crontab:
+install_crontab:
 	@if crontab -l 2>/dev/null | grep -qF '$(CRON_CMD)'; then \
 	    echo "crontab: already scheduled — no change"; \
 	else \
