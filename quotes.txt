@@ -8,13 +8,11 @@ PROVENANCE
 2026-03-26  Merged 9 unique pre-org-mode quotes from miscellaneous_bits_and_gribbles/misc/quotes.txt (~2008)
 ================================================================
 
-================================================================
+================================================================ 2026-03-26
 
-Never doubt that a small group of thoughtful, committed citizens
-can change the world; indeed, it's the only thing that ever has.
+Never doubt that a small group of thoughtful, committed citizens can change the world; 
+indeed, it's the only thing that ever has.
   -- Margaret Mead
-
-
 
 ================================================================
 
