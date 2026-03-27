@@ -41,11 +41,11 @@ we should be aiming for *effectiveness*.
   -- Woody Zuill
   -- Bran van der Meer. (2024). The Unreasonable Effectiveness of Mob Programming [YouTube Video]. In YouTube. https://www.youtube.com/watch?v=HEQ3mGfGS_U
 
-
+================================================================
 
 A complex system that works is invariably found to have evolved from a simple system that worked. 
 
-The inverse proposition also appears to be true: A complex system designed from scratch never works and cannot be made to work. You have to start over, beginning with a working simple system. 
+The inverse proposition also appears to be true: A complex system designed from scratch never works and cannot be made to work. You have to start over, beginning with a working simple system.
 
   -- Gall's Law
   -- Posted by [[id:D762DBC5-348A-4061-A5E5-85062A1007BA][Alan Holub]] on LinkedIn
