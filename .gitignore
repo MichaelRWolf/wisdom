@@ -1,1 +1,4 @@
+# Claude local settings (machine-specific, not shared)
+.claude/settings.local.json
+
 logs/*.log
