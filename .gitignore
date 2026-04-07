@@ -1,7 +1,3 @@
-# Claude project config — commit everything except local overrides
-!.claude/
-!.claude/**
-.claude/settings.local.json
 
 logs/*.log
 
