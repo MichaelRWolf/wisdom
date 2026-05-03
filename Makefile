@@ -5,7 +5,12 @@ REPO      := $(CURDIR)
 CRON_SCHED = 0 23 * * *
 CRON_CMD   = make -C $(REPO) commit_quotes
 
-.PHONY: commit_quotes timestamp_quotes install install_quotes install_crontab show_crontab
+.PHONY: setup-hooks commit_quotes timestamp_quotes install install_quotes install_crontab show_crontab
+
+setup-hooks:
+	pre-commit install
+
+
 
 commit_quotes: timestamp_quotes
 	bin/commit-quotes
