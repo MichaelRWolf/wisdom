@@ -1,3 +1,34 @@
+################################################################
+# CANONICAL SOURCE OF TRUTH
+#
+# This file is the result of a consolidation of all known quotes
+# sources into a single git-tracked canonical copy.
+#
+# Tracking issue:
+#   Issue #1 -- "Unify diverged quotes.txt files"
+#   https://github.com/MichaelRWolf/wisdom/issues/1
+#
+# Consolidation project file:
+#   https://github.com/MichaelRWolf/wisdom/blob/main/PROJECT_quote_consolidation.md
+#
+# Sources consolidated:
+#   Primary (6,366 lines, last modified 2025-10-30):
+#     repos/pk/org-roam-logseq-nodes-MichaelRWolf/pages/20230711112147-quotes.org
+#     https://github.com/MichaelRWolf/org-roam-logseq-nodes-MichaelRWolf/blob/main/pages/20230711112147-quotes.org
+#
+#   Merged for unique pre-org-mode content (9 quotes added):
+#     miscellaneous_bits_and_gribbles/misc/quotes.txt  (1,608 lines, oldest, 2014-11-10)
+#     ~/Library/CloudStorage/Dropbox/quotes.txt        (2,706 lines, 2020-01-12)
+#
+# Consolidation dates:
+#   2026-03-26  Initial consolidation: raw copy, org-mode strip, merge of unique content,
+#               obsolescence warnings added to all 14 superseded files
+#   2026-05-11  Re-audit: added missing warning to Logseq iCloud file;
+#               created GitHub issue #1
+#
+# All other copies of this content are OBSOLETE. Do not edit them.
+################################################################
+
 ================================================================ 2026-03-27
 
 None of us is as smart as all of us.
