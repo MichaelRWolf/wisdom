@@ -187,11 +187,13 @@ File was not in the original inventory and was not warned:
 Confirmed live (2026-05-11): still shows raw org-mode content, no WARNING header.
 Distinct from `~/obsidian-vault/pages/20230711112147-quotes.org` (which was warned).
 
-**TODO:** prepend obsolescence warning block (org-mode comment syntax).
+**Done (2026-05-11):** obsolescence warning prepended (org-mode comment syntax).
+Issue reference included in the warning header.
 
 ### 2. No GitHub issue exists
 
-Neither `MichaelRWolf/wisdom` nor `MichaelRWolf/writing` has an issue tracking quotes
-unification. Useful for cross-referencing from other files and future audits.
+Neither `MichaelRWolf/wisdom` nor `MichaelRWolf/writing` had an issue tracking quotes
+unification.
 
-**TODO:** create issue in `MichaelRWolf/wisdom` titled "Unify diverged quotes.txt files".
+**Done (2026-05-11):** [Issue #1](https://github.com/MichaelRWolf/wisdom/issues/1) created
+in `MichaelRWolf/wisdom` -- "Unify diverged quotes.txt files".
