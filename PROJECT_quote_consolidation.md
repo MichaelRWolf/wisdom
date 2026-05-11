@@ -14,21 +14,21 @@ Completed: 2026-03-26
 
 ## What Was Found
 
-| Lines |  Size | Modified   | File                                                                                                                                                                                       |
-|------:|------:|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 6,407 | 195KB | 2025-02-14 | `repos/writing/quotes_2025-02-14_tagged.org` -- auto-tagged, largest but tags were machine-generated                                                                                       |
-| 6,366 | 198KB | 2025-10-30 | `repos/pk/org-roam-logseq-nodes-MichaelRWolf/pages/20230711112147-quotes.org` ← **chosen as primary source**                                                                               |
-| 6,366 | 194KB | 2025-10-30 | `org-roam-logseq-from-iCloud-Drive-Archive/pages/20230711112147-quotes.org` -- same content, iCloud copy                                                                                   |
-| 6,345 | 197KB | 2024-09-12 | `~/quotes_archived_2024_09_12.txt` -- read-only snapshot                                                                                                                                   |
-| 6,320 | 196KB | 2024-08-04 | `~/quotes_archived_2024_08_04.txt` -- read-only snapshot                                                                                                                                   |
-| 6,149 | 191KB | 2023-04-28 | `~/quotes_archived_2023-04-28.txt` -- read-only snapshot                                                                                                                                   |
-| 4,173 | 107KB | 2025-02-14 | `~/Downloads/quotes_autotagged.org` -- intermediate tagging artifact                                                                                                                       |
-| 3,544 | 101KB | 2025-02-14 | `~/Downloads/quotes_tagged.org` -- partial tagging run                                                                                                                                     |
-| 3,557 | 110KB | --         | `Library/Mobile Documents/iCloud~com~logseq~logseq/Documents/org-roam-logseq/pages/20230711112147-quotes.org` -- Logseq/iCloud copy (**obsolescence warning missing** -- see Gaps section) |
-| 3,541 | 112KB | 2025-05-21 | `obsidian-vault/pages/20230711112147-quotes.org` -- truncated/stale Obsidian copy                                                                                                          |
-| 3,506 | 108KB | 2025-02-14 | `repos/writing/quotes_2025-02-14.org` -- working subset from tagging experiment                                                                                                            |
-| 2,706 |  81KB | 2020-01-12 | `Library/CloudStorage/Dropbox/quotes.txt (Symlink Backup Copy)` -- Dropbox-era snapshot                                                                                                    |
-| 1,608 |  46KB | 2014-11-10 | `miscellaneous_bits_and_gribbles/misc/quotes.txt` -- **oldest plain-text collection**                                                                                                      |
+| Lines |  Size | Modified   | File                                                                                                                                                                                                                                                                                                     |
+|------:|------:|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 6,407 | 195KB | 2025-02-14 | [repos/writing/quotes_2025-02-14_tagged.org](https://github.com/MichaelRWolf/writing/blob/main/quotes_2025-02-14_tagged.org) -- auto-tagged, largest but tags were machine-generated                                                                                                                     |
+| 6,366 | 198KB | 2025-10-30 | `repos/pk/org-roam-logseq-nodes-MichaelRWolf/pages/20230711112147-quotes.org` ← **chosen as primary source** (local non-git copy; content tracked at [org-roam-logseq-nodes-MichaelRWolf](https://github.com/MichaelRWolf/org-roam-logseq-nodes-MichaelRWolf/blob/main/pages/20230711112147-quotes.org)) |
+| 6,366 | 194KB | 2025-10-30 | `org-roam-logseq-from-iCloud-Drive-Archive/pages/20230711112147-quotes.org` -- same content, iCloud copy                                                                                                                                                                                                 |
+| 6,345 | 197KB | 2024-09-12 | `~/quotes_archived_2024_09_12.txt` -- read-only snapshot                                                                                                                                                                                                                                                 |
+| 6,320 | 196KB | 2024-08-04 | `~/quotes_archived_2024_08_04.txt` -- read-only snapshot                                                                                                                                                                                                                                                 |
+| 6,149 | 191KB | 2023-04-28 | `~/quotes_archived_2023-04-28.txt` -- read-only snapshot                                                                                                                                                                                                                                                 |
+| 4,173 | 107KB | 2025-02-14 | `~/Downloads/quotes_autotagged.org` -- intermediate tagging artifact                                                                                                                                                                                                                                     |
+| 3,544 | 101KB | 2025-02-14 | `~/Downloads/quotes_tagged.org` -- partial tagging run                                                                                                                                                                                                                                                   |
+| 3,557 | 110KB | --         | [Library/.../org-roam-logseq/pages/20230711112147-quotes.org](https://github.com/MichaelRWolf/org-roam-logseq-nodes-MichaelRWolf/blob/main/pages/20230711112147-quotes.org) -- Logseq/iCloud copy (obsolescence warning added 2026-05-11)                                                                |
+| 3,541 | 112KB | 2025-05-21 | `obsidian-vault/pages/20230711112147-quotes.org` -- truncated/stale Obsidian copy                                                                                                                                                                                                                        |
+| 3,506 | 108KB | 2025-02-14 | [repos/writing/quotes_2025-02-14.org](https://github.com/MichaelRWolf/writing/blob/main/quotes_2025-02-14.org) -- working subset from tagging experiment                                                                                                                                                 |
+| 2,706 |  81KB | 2020-01-12 | `Library/CloudStorage/Dropbox/quotes.txt (Symlink Backup Copy)` -- Dropbox-era snapshot                                                                                                                                                                                                                  |
+| 1,608 |  46KB | 2014-11-10 | `miscellaneous_bits_and_gribbles/misc/quotes.txt` -- **oldest plain-text collection**                                                                                                                                                                                                                    |
 
 ### Pre-existing symlink chain (now retired)
 
@@ -137,17 +137,18 @@ GitHub: https://github.com/MichaelRWolf/wisdom
 - `~/quotes_archived_2023-04-28.txt` (read-only)
 - `~/quotes_archived_2024_08_04.txt` (read-only)
 - `~/quotes_archived_2024_09_12.txt` (read-only)
-- `~/repos/pk/org-roam-logseq-nodes-MichaelRWolf/pages/20230711112147-quotes.org`
-- `~/repos/pk/org-roam-logseq-nodes-MichaelRWolf-working-backup/pages/20230711112147-quotes.org`
-- `~/repos/writing/quotes_2025-02-14.org`
-- `~/repos/writing/quotes_2025-02-14_tagged.org`
-- `~/repos/writing/test/quotes_tagged_by_concept.org`
-- `~/Downloads/quotes_tagged.org`
-- `~/Downloads/quotes_autotagged.org`
-- `~/obsidian-vault/pages/20230711112147-quotes.org`
-- `~/org-roam-logseq-from-iCloud-Drive-Archive/pages/20230711112147-quotes.org`
-- `~/Library/CloudStorage/Dropbox/quotes.txt (Symlink Backup Copy)`
-- `~/miscellaneous_bits_and_gribbles/misc/quotes.txt`
+- `~/repos/pk/org-roam-logseq-nodes-MichaelRWolf/pages/20230711112147-quotes.org` (local non-git copy)
+- `~/repos/pk/org-roam-logseq-nodes-MichaelRWolf-working-backup/pages/20230711112147-quotes.org` (local non-git copy)
+- [repos/writing/quotes_2025-02-14.org](https://github.com/MichaelRWolf/writing/blob/main/quotes_2025-02-14.org)
+- [repos/writing/quotes_2025-02-14_tagged.org](https://github.com/MichaelRWolf/writing/blob/main/quotes_2025-02-14_tagged.org)
+- [repos/writing/test/quotes_tagged_by_concept.org](https://github.com/MichaelRWolf/writing/blob/main/test/quotes_tagged_by_concept.org)
+- `~/Downloads/quotes_tagged.org` (local only)
+- `~/Downloads/quotes_autotagged.org` (local only)
+- `~/obsidian-vault/pages/20230711112147-quotes.org` (local only)
+- `~/org-roam-logseq-from-iCloud-Drive-Archive/pages/20230711112147-quotes.org` (local only)
+- [Library/.../org-roam-logseq/pages/20230711112147-quotes.org](https://github.com/MichaelRWolf/org-roam-logseq-nodes-MichaelRWolf/blob/main/pages/20230711112147-quotes.org) (iCloud Logseq; warning added 2026-05-11)
+- `~/Library/CloudStorage/Dropbox/quotes.txt (Symlink Backup Copy)` (local only)
+- `~/miscellaneous_bits_and_gribbles/misc/quotes.txt` (local only)
 
 ---
 
