@@ -29,6 +29,11 @@
 # All other copies of this content are OBSOLETE. Do not edit them.
 ################################################################
 
+A fool with a tool
+is still a fool
+  -- Grady Booch
+  -- As quoted by David Mantica 2026-05 - GenAI Day #7
+
 ================================================================ 2026-03-27
 
 None of us is as smart as all of us.
