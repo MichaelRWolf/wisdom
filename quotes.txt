@@ -585,7 +585,7 @@ Programming is the art of telling another human what one wants the computer to d
 Debugging is twice as hard as writing the code in the first place. 
 Therefore, if you write the code as cleverly as possible, 
 you are, by definition, not smart enough to debug it.
-  -- Brian W. Kernighan (of K&W C, and Unix fame)
+  -- Brian W. Kernighan (of K&R C, and Unix fame)
 
 Quotes by Brian W. Kernighan. (2020). Retrieved September 30, 2020, from Defprogramming.com website: https://www.defprogramming.com/quotes-by/brian-w-kernighan/#:~:text=Debugging%20is%20twice%20as%20hard,smart%20enough%20to%20debug%20it.
 
