@@ -7,18 +7,20 @@ repos:
   #       args: [--fix]
   #     - id: ruff-format
 
+  # universal
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=102400"] # 100MB
+
+  # markdown
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.48.0
     hooks:
       - id: markdownlint-fix
         # companion: .markdownlint.json must include "MD060": false
         # MD060 (table-column-style) conflicts with markdown-table-formatter output style
-
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
-    hooks:
-      - id: check-added-large-files
-        args: ["--maxkb=102400"] # 100MB
 
   - repo: https://github.com/sirosen/texthooks
     rev: 0.7.1
@@ -30,6 +32,7 @@ repos:
       - id: fix-unicode-dashes
         types: [markdown]
 
+  # local-guards + markdown + shell
   - repo: local
     hooks:
       - id: forbid-org-files
