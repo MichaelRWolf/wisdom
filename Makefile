@@ -3,30 +3,30 @@
 # so this works whether invoked as 'make' or 'make -C /path/to/wisdom'.
 REPO      := $(CURDIR)
 CRON_SCHED = 0 23 * * *
-CRON_CMD   = make -C $(REPO) commit_quotes
+CRON_CMD   = make -C $(REPO) commit-quotes
 
-.PHONY: setup-hooks commit_quotes timestamp_quotes install install_quotes install_crontab show_crontab
+.PHONY: setup-hooks commit-quotes timestamp-quotes install install-quotes install-crontab show-crontab
 
 setup-hooks:
 	pre-commit install
 
 
 
-commit_quotes: timestamp_quotes
+commit-quotes: timestamp-quotes
 	bin/commit-quotes
 
-timestamp_quotes:
+timestamp-quotes:
 	bin/timestamp-quotes quotes.txt
 
-install: install_quotes
+install: install-quotes
 
-install_quotes:
+install-quotes:
 	@TARGET="$(REPO)/quotes.txt"; \
 	LINK="$(HOME)/quotes.txt"; \
 	if [ -L "$$LINK" ]; then \
 	    CURRENT=$$(readlink "$$LINK"); \
 	    if [ "$$CURRENT" = "$$TARGET" ]; then \
-	        echo "install_quotes: verified $$LINK -> $$TARGET"; \
+	        echo "install-quotes: verified $$LINK -> $$TARGET"; \
 	    else \
 	        echo "WARNING: $$LINK exists but points to $$CURRENT (expected $$TARGET)"; \
 	    fi; \
@@ -34,12 +34,12 @@ install_quotes:
 	    echo "WARNING: $$LINK exists and is not a symlink — leaving it alone"; \
 	else \
 	    ln -s "$$TARGET" "$$LINK"; \
-	    echo "install_quotes: created $$LINK -> $$TARGET"; \
+	    echo "install-quotes: created $$LINK -> $$TARGET"; \
 	fi
 
 # Install a nightly crontab entry (idempotent — safe to run multiple times).
 # MAILTO="" suppresses all cron mail.
-install_crontab:
+install-crontab:
 	@if crontab -l 2>/dev/null | grep -qF '$(CRON_CMD)'; then \
 	    echo "crontab: already scheduled — no change"; \
 	else \
@@ -51,7 +51,7 @@ install_crontab:
 	fi
 
 # Show whether the crontab entry is installed.
-show_crontab:
+show-crontab:
 	@crontab -l 2>/dev/null | grep -F '$(CRON_CMD)' \
 	    && echo "(scheduled)" \
 	    || echo "(not scheduled)"
